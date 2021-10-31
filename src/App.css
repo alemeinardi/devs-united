@@ -11,6 +11,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  border: 0px white solid;
 }
 
 body {
@@ -19,11 +20,17 @@ body {
 
 .App {
   text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 50px;
 }
 
 h1 {
@@ -33,6 +40,7 @@ h1 {
 
 h2 {
   color: white;
+  font-family: "fira code";
 }
 
 .box {
@@ -41,5 +49,36 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: left;
   margin: 30px;
+}
+
+.logo {
+  height: 80%;
+}
+
+.signin {
+  cursor: pointer;
+}
+
+.copyright {
+  color: #60265B;
+  margin-top: 40px;
+}
+
+.copyright em {
+  color: red;
+  font-style: normal;
+}
+
+footer p {
+  width: 350px;
+  text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
 }
