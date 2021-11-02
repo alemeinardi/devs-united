@@ -1,0 +1,22 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  background-color: #150714;
+  color: #914D8B;
+  width: var(--header__width);
+  height: 45px;
+  padding: 10px;
+}
+
+.button_register {
+  width: var(--header__width);
+  height: 52px;
+  background-color: #00DA76;
+  color: white;
+  cursor: pointer;
+}

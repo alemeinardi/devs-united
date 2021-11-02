@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+:root {
+  --header__width: 350px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +34,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 h1 {
@@ -45,35 +49,21 @@ h2 {
 
 .box {
   height: 260px;
-  width: 350px;
+  width: var(--header__width);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  margin: 30px;
+  margin: 50px;
 }
 
 .logo {
   height: 80%;
 }
 
-.signin {
-  cursor: pointer;
-}
-
-.copyright {
-  color: #60265B;
-  margin-top: 40px;
-}
-
-.copyright em {
+em {
   color: red;
   font-style: normal;
-}
-
-footer p {
-  width: 350px;
-  text-align: center;
 }
 
 @media screen and (max-width: 780px) {

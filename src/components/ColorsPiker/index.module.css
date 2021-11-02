@@ -1,0 +1,15 @@
+.color {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+.color_picker {
+  color: white;
+}
+
+.selected_color {
+  border: 5px solid white;
+}

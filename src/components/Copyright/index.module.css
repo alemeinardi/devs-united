@@ -1,0 +1,9 @@
+footer p {
+  width: var(--header__width);
+  text-align: center;
+}
+
+.copyright {
+  color: #60265B;
+  margin-top: 40px;
+}
