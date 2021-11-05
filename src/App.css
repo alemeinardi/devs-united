@@ -31,22 +31,6 @@ body {
   align-items: center;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-h1 {
-  color: white;
-  font-family: 'silks';
-}
-
-h2 {
-  color: white;
-  font-family: "fira code";
-}
-
 .box {
   height: 260px;
   width: var(--header__width);
@@ -57,17 +41,13 @@ h2 {
   margin: 50px;
 }
 
-.logo {
-  height: 80%;
-}
-
 em {
   color: red;
   font-style: normal;
 }
 
 @media screen and (max-width: 780px) {
-  header {
+  .home {
     display: flex;
     flex-direction: column;
   }

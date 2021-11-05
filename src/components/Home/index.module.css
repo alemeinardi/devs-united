@@ -1,0 +1,19 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+h1 {
+  color: white;
+  font-family: 'silks';
+}
+
+h2 {
+  color: white;
+  font-family: "fira code";
+}
+
+.logo {
+  height: 80%;
+}

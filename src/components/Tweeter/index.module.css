@@ -1,0 +1,35 @@
+.tweeter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  width: 460px;
+  padding: 10px;
+  background-color: #2F112D;
+  color: #914D8B;
+}
+
+.letter_counter {
+  color: white;
+}
+
+.letter_max {
+  color: #F50D5A;
+}
+
+.letters {
+  width: 460px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweeter button {
+  height: 35px;
+  width: 102px;
+  background-color: #2F112D;
+  cursor: pointer;
+}

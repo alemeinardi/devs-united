@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Home from "./components/Home";
+import Nav from './components/Nav';
+import Main from './components/Main';
 
 function App() {
-  const [isRegister, setIsRegister] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
-  return (
-    <div className="App">
-      <header>
-        <div className="box">
-          <img className="logo" src="./images/logo.svg" alt="Logo"></img>
-          <img src="./images/logo_name.svg" alt="Logo name"></img>
-        </div>
-        {isRegister ? <Register /> : <Login />}
-      </header>
-    </div>
-  );
+  if (isLogged) { 
+    return <div className="App"><Home/></div>
+  } else {
+    return (
+      <div className="App">
+        <Nav/>
+        <Main/>
+      </div>
+    )
+  }
 }
 
 export default App;
