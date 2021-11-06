@@ -7,17 +7,8 @@ export const AppProvider = (props) => {
   const [selectedColor, setSelectedColor ] = useState(colors[0]);
   const [isRegistered, setIsRegistered] = useState(false);
 
-  const [tweets, setTweets] = useState([]);
-  const [tweet, setTweet] = useState({
-    tweet: "",
-    date: null,
-    user: "",
-    id: null,
-    likes: 0
-  })
-
   return (
-    <AppContext.Provider value={{ selectedColor, setSelectedColor, isRegistered, setIsRegistered, tweet, setTweet }}>
+    <AppContext.Provider value={{ selectedColor, setSelectedColor, isRegistered, setIsRegistered }}>
       {props.children}
     </AppContext.Provider>
   );

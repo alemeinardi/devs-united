@@ -6,8 +6,8 @@
 }
 
 textarea {
-  width: 460px;
-  padding: 10px;
+  width: 560px;
+  padding: 10px 10px 0px 10px;
   background-color: #2F112D;
   color: #914D8B;
 }
@@ -30,6 +30,7 @@ textarea {
 .tweeter button {
   height: 35px;
   width: 102px;
+  font-family: silkscreen;
   background-color: #2F112D;
   cursor: pointer;
 }

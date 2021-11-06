@@ -1,11 +1,18 @@
 import React, { useState, useContext } from "react";
 import styles from "./index.module.css";
-import { AppContext } from "../../contexts/AppContext.js";
 import { myfirestore } from "../../firebase/firebase.js"
 
 const Tweeter = () => {
+  const [tweet, setTweet] = useState({
+    date: null,
+    tweet: "",
+    id: null,
+    userid: "",
+    username: "",
+    likes: 0
+  })
+
   const [longTweet, setLongTweet] = useState(0);
-  const { tweet, setTweet } = useContext(AppContext);
 
   const handleChange = (e) => {
     let newTweet = {...tweet,
@@ -21,7 +28,7 @@ const Tweeter = () => {
 
   return (
   <div className={styles.tweeter}>
-    <textarea name="tweet" placeholder="What’s happening?" cols="60" rows="6" onChange={handleChange}>
+    <textarea name="tweet" placeholder="What’s happening?" cols="120" rows="4" onChange={handleChange}>
     </textarea>
     <div className={styles.letters}>
       <span className={styles.letter_counter}>{longTweet}</span>

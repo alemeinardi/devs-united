@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'silks';
-  src: './fonts/slkscr.ttf';
-  font-weight: normal;
-  font-style: normal;
+  font-family: silkscreen;
+  src: local("silkscreen") url("./fonts/silkscreen.ttf") format("truetype");
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 :root {
   --header__width: 350px;
@@ -15,6 +15,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font: normal 400 18px "Fira Code";
   border: 0px white solid;
 }
 
@@ -44,6 +45,12 @@ body {
 em {
   color: red;
   font-style: normal;
+}
+
+.username {
+  height: 18px;
+  padding: 2px 4px;
+  background-color: white;
 }
 
 @media screen and (max-width: 780px) {
