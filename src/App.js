@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Home from "./components/Home";
 import Nav from './components/Nav';
 import Main from './components/Main';
 
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   if (isLogged) { 
     return <div className="App"><Home/></div>

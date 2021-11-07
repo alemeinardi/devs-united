@@ -4,7 +4,14 @@ import colors from "../../data/colors.js";
 import { AppContext } from "../../contexts/AppContext";
 
 const ColorsPiker = () => {
-  const { selectedColor, setSelectedColor } = useContext(AppContext);
+  const { selectedColor, setSelectedColor, user, setUser } = useContext(AppContext);
+
+  const handleClickColor = (color) => {
+    let newUser = {...user,
+      color: color}
+      setUser(newUser);
+      setSelectedColor(color)
+  }
 
   const eachColorOption = (color) => {
     return (
@@ -12,7 +19,7 @@ const ColorsPiker = () => {
         key={color.name}
         className={`${styles.color} ${selectedColor === color && styles.selected_color}`}
         style={{ backgroundColor: color.hex }}
-        onClick={() => setSelectedColor(color)}
+        onClick={() => handleClickColor(color)}
       />
     );
   } 

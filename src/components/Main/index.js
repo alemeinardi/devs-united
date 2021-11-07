@@ -1,5 +1,4 @@
 import React from "react";
-import sytles from "./index.module.css"
 import Header from "../Header";
 import Feed from "../Feed";
 

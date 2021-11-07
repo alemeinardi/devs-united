@@ -38,9 +38,9 @@ const Feed = () => {
       <div key={tweet.id} className={styles.tweet}>
         <span className="username">{tweet.username}</span>
         <span>{` - ${tweet.date.toDate().getDay()} ${tweet.date.toDate().toLocaleDateString('es-ES', { month: 'short'})}.`}</span>
-        <img className={styles.icon_trash} src="../images/trash.png" alt="Trash Image" onClick={deleteTweet} />
+        <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={deleteTweet} />
         <p>{tweet.tweet}</p>
-        <img className={styles.icon_heart} height="13px" src="../images/heart.svg" alt="Heart Image" onClick={likeTweet} />
+        <img className={styles.icon_heart} height="13px" src="../images/heart.svg" alt="Heart" onClick={likeTweet} />
       </div>
     ))}
   </div>)
