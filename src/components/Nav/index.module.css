@@ -4,6 +4,7 @@ nav {
   align-items: center;
   height: 9vh;
   background-color: #2F112D;
+  width: var(--header__width);
 }
 
 .user_photo {
@@ -19,4 +20,11 @@ nav {
 
 .min_logo_name {
   width: 30%;
+}
+
+.button_logout {
+  width: 116px;
+  height: 35px;
+  background-color: #F50D5A;
+  cursor: pointer;
 }

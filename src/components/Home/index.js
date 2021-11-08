@@ -10,11 +10,12 @@ const Home = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((google_user) => {
+      if (google_user) {
       const newUser = {
         email: google_user.email
       }
       setDisplayName(google_user.displayName) 
-      setUser(newUser);
+      setUser(newUser)};
     });
   }, [])
 

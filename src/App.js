@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import './App.css';
 import Home from "./components/Home";
 import Nav from './components/Nav';
 import Main from './components/Main';
+import { AppContext } from "./contexts/AppContext"
 
 function App() {
-  const [isLogged, setIsLogged] = useState(true);
+  const { user } = useContext(AppContext);
 
-  if (isLogged) { 
+  if (!user) { 
     return <div className="App"><Home/></div>
   } else {
     return (

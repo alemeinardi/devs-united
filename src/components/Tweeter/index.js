@@ -28,7 +28,7 @@ const Tweeter = () => {
 
   return (
   <div className={styles.tweeter}>
-    <textarea name="tweet" placeholder="What’s happening?" cols="120" rows="4" onChange={handleChange}>
+    <textarea name="tweet" placeholder="What’s happening?" cols="120" rows="4" maxlength="200" onChange={handleChange}>
     </textarea>
     <div className={styles.letters}>
       <span className={styles.letter_counter}>{longTweet}</span>
