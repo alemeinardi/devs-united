@@ -5,27 +5,29 @@ import { logout } from "../../firebase/firebase";
 
 const Nav = () => {
 
-  const { setUser } = useContext(AppContext);
-  const [ isProfile, setIsProfile] = useState(true);
+  const { user, setUser } = useContext(AppContext);
+  const [ isProfile, setIsProfile] = useState(false);
   
+  const handleLogOut = () => {
+    logout();
+    setIsProfile(false);
+    setUser({...user,
+      userId: null});
+  }
+
   const appNav = () => {
     return (<nav>
-      <img className={styles.user_photo} alt="User" src="./images/user_photo.png"></img>
+      <img className={styles.username_photo} style={{ borderColor: user.color }} onClick={() => setIsProfile(true)} alt="User" src={user.photoURL}></img>
       <img className={styles.min_logo} alt="Logo" src="./images/logo.svg"></img>
       <img className={styles.min_logo_name} alt="Logo Name" src="./images/logo_name.svg"></img>
     </nav>);
   };
 
-  const handleLogOut = () => {
-    logout();
-    setUser(null);
-  }
-
   const profile = () => {
     return (<nav>
-      <div>
+      <div className={styles.username}>
         <img alt="arrow" src="./images/backarrow.png"></img>
-        <span>user</span>
+        <span>{user.username}</span>
       </div>
       <button className={styles.button_logout} onClick={handleLogOut}>
         LOGOUT

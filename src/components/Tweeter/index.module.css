@@ -1,15 +1,29 @@
 .tweeter {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: var(--body__width);
+}
+
+.tweet {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
+.username_photo {
+  border: solid 3px;
+  object-fit: cover;
+  width: 70px;
+  border-radius: 45px;
+}
+
 textarea {
-  width: 560px;
-  padding: 10px 10px 0px 10px;
+  width: 480px;
   background-color: #2F112D;
   color: #914D8B;
+  padding: 10px;
 }
 
 .letter_counter {
@@ -21,10 +35,10 @@ textarea {
 }
 
 .letters {
-  width: 460px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 480px;
 }
 
 .tweeter button {

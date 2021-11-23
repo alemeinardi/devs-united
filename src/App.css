@@ -7,6 +7,7 @@
 
 :root {
   --header__width: 350px;
+  --body__width: 560px;
 }
 
 * {
@@ -49,8 +50,45 @@ em {
 
 .username {
   height: 18px;
-  padding: 2px 4px;
-  background-color: white;
+  padding: 2px;
+  padding: 0 4px;
+}
+
+main {
+  background-color: #2F112D;
+  height: 91vh;
+  width: 100%;
+}
+
+/* Header */
+header {
+  background-color: #150714;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Home */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+h1 {
+  color: white;
+  font-family: 'silks';
+}
+
+h2 {
+  color: white;
+  font-family: "fira code";
+}
+
+.logo {
+  height: 80%;
 }
 
 @media screen and (max-width: 780px) {

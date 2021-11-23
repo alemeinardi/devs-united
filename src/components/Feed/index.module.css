@@ -1,5 +1,4 @@
 .feed {
-  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,8 +6,28 @@
 }
 
 .tweet {
-  border-bottom: solid 1px #60265B;
-  width: 560px;
+  border-bottom: solid 2px #60265B;
+  width: var(--body__width);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #FFFFFF;
+}
+
+.tweet * {
+  margin: 5px 0;
+}
+
+.tweet_data {
+  width: 480px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tweet_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .icon_trash {
@@ -19,4 +38,11 @@
 .icon_heart {
   height: 15px;
   cursor: pointer;
+}
+
+.username_photo {
+  border: solid 3px;
+  object-fit: cover;
+  width: 70px;
+  border-radius: 45px;
 }

@@ -1,0 +1,15 @@
+.error {
+  background-color: #C70039;
+  color: white;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  margin-top: 10px;
+  width: var(--header__width);
+  padding: 5px;
+}
+
+.error img {
+  width: 10%;
+  margin-right: 10px;
+}

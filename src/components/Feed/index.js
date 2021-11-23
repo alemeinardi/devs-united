@@ -6,7 +6,7 @@ const Feed = () => {
   const [tweets, setTweets] = useState([]);
 
   const deleteTweet = (id) => {
-    setTweets(tweets.filter((thistweet) => { return thistweet.id !== id}))
+    myfirestore.doc(`tweets/${id}`).delete();
   }
 
   const likeTweet = (id, like) => {
@@ -22,9 +22,11 @@ const Feed = () => {
           id: doc.id,
           date: doc.data().date,
           tweet: doc.data().tweet,
-          userid: 0,
+          userId: doc.data().userId,
           likes: doc.data().likes,
-          username: doc.data().username
+          username: doc.data().username,
+          color: doc.data().color,
+          photoURL: doc.data().photoURL
         } 
       })
       setTweets(tweetsArray)
@@ -36,11 +38,18 @@ const Feed = () => {
   <div className={styles.feed}>
     {tweets.map((tweet) => (
       <div key={tweet.id} className={styles.tweet}>
-        <span className="username">{tweet.username}</span>
-        <span>{` - ${tweet.date.toDate().getDay()} ${tweet.date.toDate().toLocaleDateString('es-ES', { month: 'short'})}.`}</span>
-        <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={deleteTweet} />
-        <p>{tweet.tweet}</p>
-        <img className={styles.icon_heart} height="13px" src="../images/heart.svg" alt="Heart" onClick={likeTweet} />
+        <img className={styles.username_photo} style={{ borderColor: tweet.color }} src={tweet.photoURL} alt="profile"></img>
+        <div className={styles.tweet_data}>
+          <div className={styles.tweet_header}>
+            <div>
+              <span className="username" style={{ backgroundColor: tweet.color }}>{tweet.username}</span>
+              <span>{` - ${tweet.date.toDate().getDate()} ${tweet.date.toDate().toLocaleDateString('es-ES', { month: 'short'})}.`}</span>
+            </div>
+            <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={() => deleteTweet(tweet.id)} />
+          </div>
+          <p>{tweet.tweet}</p>
+          <img className={styles.icon_heart} height="13px" src="../images/offheart.svg" alt="Heart" onClick={likeTweet} />
+        </div>
       </div>
     ))}
   </div>)

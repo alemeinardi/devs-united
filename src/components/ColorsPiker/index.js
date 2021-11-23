@@ -8,7 +8,7 @@ const ColorsPiker = () => {
 
   const handleClickColor = (color) => {
     let newUser = {...user,
-      color: color}
+      color: color.hex}
       setUser(newUser);
       setSelectedColor(color)
   }
