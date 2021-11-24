@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./index.module.css";
-import { myfirestore } from "../../firebase/firebase.js"
+import { myfirestore } from "../../firebase/firebase.js";
+import { AppContext } from "../../contexts/AppContext";
 
 const Feed = () => {
+  const { user } = useContext(AppContext);
   const [tweets, setTweets] = useState([]);
 
   const deleteTweet = (id) => {
@@ -45,7 +47,8 @@ const Feed = () => {
               <span className="username" style={{ backgroundColor: tweet.color }}>{tweet.username}</span>
               <span>{` - ${tweet.date.toDate().getDate()} ${tweet.date.toDate().toLocaleDateString('es-ES', { month: 'short'})}.`}</span>
             </div>
-            <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={() => deleteTweet(tweet.id)} />
+            {user.userId === tweet.userId &&
+            <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={() => deleteTweet(tweet.id)} />}
           </div>
           <p>{tweet.tweet}</p>
           <img className={styles.icon_heart} height="13px" src="../images/offheart.svg" alt="Heart" onClick={likeTweet} />

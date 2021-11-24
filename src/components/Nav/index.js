@@ -26,8 +26,8 @@ const Nav = () => {
   const profile = () => {
     return (<nav>
       <div className={styles.username}>
-        <img alt="arrow" src="./images/backarrow.png"></img>
-        <span>{user.username}</span>
+        <img alt="arrow" src="./images/backarrow.png" onClick={() => {setIsProfile(false)}}></img>
+        <span style={{ color: user.color }}>{user.username}</span>
       </div>
       <button className={styles.button_logout} onClick={handleLogOut}>
         LOGOUT

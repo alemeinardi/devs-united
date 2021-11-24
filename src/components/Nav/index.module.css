@@ -21,6 +21,10 @@ nav {
   align-items: center;
 }
 
+.username img {
+  cursor: pointer;
+}
+
 .username span {
   margin-left: 10px;
 }
