@@ -50,8 +50,7 @@ em {
 
 .username {
   height: 18px;
-  padding: 2px;
-  padding: 0 4px;
+  padding: 2px 10px;
 }
 
 main {

@@ -11,9 +11,24 @@ const Feed = () => {
     myfirestore.doc(`tweets/${id}`).delete();
   }
 
-  const likeTweet = (id, like) => {
-    like = !like ? 0: like;
-    myfirestore.doc(`tweets/${id}`).update({likes: like +1});
+  const likeTweet = (tweetId, likes) => {
+    myfirestore.collection("users_tweets")
+    .where("tweetId", "==", tweetId)
+    .where("userId", "==", user.userId)
+    .get()
+    .then((documents) => {
+      const userNotLikesTweet = documents.empty;
+      if (userNotLikesTweet) {
+        myfirestore.collection("users_tweets").add({ tweetId: tweetId, userId: user.userId}) }
+      else {
+        myfirestore.collection("users_tweets")
+        .where("tweetId", "==", tweetId)
+        .where("userId", "==", user.userId)
+        .get()
+        .then((documents) => documents.forEach(doc => doc.ref.delete()))
+      }
+      myfirestore.doc(`tweets/${tweetId}`).update({likes: likes + (documents.empty ? 1 : -1)});
+    })
   }
 
   useEffect(() => {
@@ -51,7 +66,10 @@ const Feed = () => {
             <img className={styles.icon_trash} src="../images/trash.png" alt="Trash" onClick={() => deleteTweet(tweet.id)} />}
           </div>
           <p>{tweet.tweet}</p>
-          <img className={styles.icon_heart} height="13px" src="../images/offheart.svg" alt="Heart" onClick={likeTweet} />
+          <div className={styles.likes}>
+           <img className={styles.icon_heart} height="13px" src={tweet.likes > 0 ? "../images/onheart.svg" : "../images/offheart.svg"} alt="Heart" onClick={() => likeTweet(tweet.id, tweet.likes)} />
+            <span>{tweet.likes > 0 && tweet.likes}</span>
+          </div>
         </div>
       </div>
     ))}
