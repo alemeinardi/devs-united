@@ -25,6 +25,7 @@ textarea {
   background-color: #2F112D;
   color: #914D8B;
   padding: 10px;
+  resize: none;
 }
 
 .letter_counter {

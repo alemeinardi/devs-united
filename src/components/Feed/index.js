@@ -3,12 +3,28 @@ import styles from "./index.module.css";
 import { myfirestore } from "../../firebase/firebase.js";
 import { AppContext } from "../../contexts/AppContext";
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 const Feed = () => {
   const { user } = useContext(AppContext);
   const [tweets, setTweets] = useState([]);
 
   const deleteTweet = (id) => {
-    myfirestore.doc(`tweets/${id}`).delete();
+
+    confirmAlert({
+      title: 'Confirm Delete',
+      message: 'Are you sure to delete this tweet?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => myfirestore.doc(`tweets/${id}`).delete()
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
   }
 
   const likeTweet = (tweetId, likes) => {

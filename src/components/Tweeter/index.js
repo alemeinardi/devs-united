@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import styles from "./index.module.css";
 import { AppContext } from "../../contexts/AppContext";
-import { myfirestore } from "../../firebase/firebase.js"
+import { myfirestore } from "../../firebase/firebase.js";
 
 const Tweeter = () => {
 
@@ -33,14 +33,15 @@ const Tweeter = () => {
 
   const sendTweet = () => {
     myfirestore.collection("tweets").add(tweet)
+    setTweet({...tweet,
+    tweet: ""})
   }
 
   return (
   <div className={styles.tweeter}>
     <img className={styles.username_photo} style={{ borderColor: user.color }} src={user.photoURL} alt="User"></img>
     <div className={styles.tweet}>
-      <textarea name="tweet" placeholder="What’s happening?" cols="120" rows="4" maxLength="200" onChange={handleChange}>
-        </textarea>
+      <textarea name="tweet" placeholder="What’s happening?" cols="120" rows="4" maxLength="200" onChange={handleChange}></textarea>
       <div className={styles.letters}>
         <span className={styles.letter_counter}>{longTweet}</span>
         <span className={styles.letter_max}>200 max.</span>
