@@ -2,13 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "./index.module.css";
 import { myfirestore } from "../../firebase/firebase.js";
 import { AppContext } from "../../contexts/AppContext";
-
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+/* Confirm Alert Library */
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { BlockLoading } from 'react-loadingg';
 
 const Feed = () => {
   const { user } = useContext(AppContext);
-  const [tweets, setTweets] = useState([]);
+  const [ tweets, setTweets ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(false);
 
   const deleteTweet = (id) => {
 
@@ -48,6 +50,7 @@ const Feed = () => {
   }
 
   useEffect(() => {
+    setIsLoading(true);
     const unsuscribe = myfirestore.collection("tweets")
     .onSnapshot(snapshot => {
       const tweetsArray = snapshot.docs.map(doc => {
@@ -65,10 +68,12 @@ const Feed = () => {
       setTweets(tweetsArray)
     });
     return () => unsuscribe();
+    setIsLoading(false);
   }, [])
 
   return (
   <div className={styles.feed}>
+    {/*isLoading && <BlockLoading />*/}
     {tweets.map((tweet) => (
       <div key={tweet.id} className={styles.tweet}>
         <img className={styles.username_photo} style={{ borderColor: tweet.color }} src={tweet.photoURL} alt="profile"></img>

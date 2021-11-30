@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { AppProvider } from './contexts/AppContext';
+import './fonts/silkscreen.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

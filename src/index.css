@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Silkscreen;
+  src: local('Silkscreen'), url("./fonts/silkscreen.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +13,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: "fira code", source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

@@ -17,7 +17,7 @@ const Tweeter = () => {
     likes: 0
   })
 
-  const [longTweet, setLongTweet] = useState(0);
+  const [ longTweet, setLongTweet ] = useState(0);
 
   const handleChange = (e) => {
     let newTweet = {...tweet,
@@ -46,8 +46,10 @@ const Tweeter = () => {
         <span className={styles.letter_counter}>{longTweet}</span>
         <span className={styles.letter_max}>200 max.</span>
       </div>
-      <button onClick={sendTweet}>POST</button>
+      <div className={styles.box_button}>
+        <button onClick={sendTweet} disabled={longTweet<=9}>POST</button>
       </div>
+    </div>
   </div>
 )}
 

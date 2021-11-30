@@ -18,7 +18,6 @@ const Register = () => {
     let newUser = {...user,
     username: e.target.value.toLowerCase()}
     setUser(newUser);
-
   }
 
   const saveUser = () => {
@@ -39,7 +38,6 @@ const Register = () => {
       myfirestore.collection("users")
       .add(userToSave)
       .catch((e) => {
-        /* NO FUNCIONA EL CONTROL DE ERRORES? */
         setError({isError: true, message: ""})
       })
       setUser({...user,
