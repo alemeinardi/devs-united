@@ -5,12 +5,13 @@ import { AppContext } from "../../contexts/AppContext";
 /* Confirm Alert Library */
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-import { BlockLoading } from 'react-loadingg';
+/* Loading Library */
+import ReactLoading from 'react-loading';
 
 const Feed = () => {
   const { user } = useContext(AppContext);
   const [ tweets, setTweets ] = useState([]);
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [ isLoading, setIsLoading ] = useState(true);
 
   const deleteTweet = (id) => {
 
@@ -50,7 +51,6 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    setIsLoading(true);
     const unsuscribe = myfirestore.collection("tweets")
     .onSnapshot(snapshot => {
       const tweetsArray = snapshot.docs.map(doc => {
@@ -65,15 +65,22 @@ const Feed = () => {
           photoURL: doc.data().photoURL
         } 
       })
-      setTweets(tweetsArray)
+      setTweets(tweetsArray);
+      setIsLoading(false);
     });
     return () => unsuscribe();
-    setIsLoading(false);
   }, [])
+
+  const Loading = () => {
+    return (<div className={styles.loading}>
+      <ReactLoading type="cylon" color="white" height={300} width={150}/>
+      <span>Searching...</span>
+      </div>)
+  }
 
   return (
   <div className={styles.feed}>
-    {/*isLoading && <BlockLoading />*/}
+    {isLoading && <Loading/>}
     {tweets.map((tweet) => (
       <div key={tweet.id} className={styles.tweet}>
         <img className={styles.username_photo} style={{ borderColor: tweet.color }} src={tweet.photoURL} alt="profile"></img>
