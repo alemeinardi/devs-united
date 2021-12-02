@@ -51,7 +51,7 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    const unsuscribe = myfirestore.collection("tweets")
+    const unsuscribe = myfirestore.collection("tweets").orderBy("date","desc").limit(50)
     .onSnapshot(snapshot => {
       const tweetsArray = snapshot.docs.map(doc => {
         return {
