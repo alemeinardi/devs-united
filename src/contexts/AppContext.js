@@ -4,7 +4,7 @@ import colors from "../data/colors.js";
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
-   
+
   const [ user, setUser] = useState({
     userId: null,
     email: "",
@@ -15,14 +15,23 @@ export const AppProvider = (props) => {
     displayName: ""
   });
 
-  const [selectedColor, setSelectedColor ] = useState(colors[0]);
+  const [ selectedColor, setSelectedColor ] = useState(colors[0]);
+  const [ isProfile, setIsProfile] = useState(false);
+  const [ filter, setFilter ] = useState("all");
+  const [ isLoading, setIsLoading ] = useState(true);
 
   return (
     <AppContext.Provider value={{ 
       selectedColor, 
       setSelectedColor, 
       user, 
-      setUser }}>
+      setUser,
+      isProfile,
+      setIsProfile,
+      filter,
+      setFilter,
+      isLoading,
+      setIsLoading }}>
       {props.children}
     </AppContext.Provider>
   );

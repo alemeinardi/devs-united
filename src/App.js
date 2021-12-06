@@ -5,11 +5,12 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Feed from "./components/Feed";
 import Tweeter from "./components/Tweeter";
+import Profile from './components/Profile';
 import { AppContext } from "./contexts/AppContext";
 import { auth, myfirestore } from "./firebase/firebase";
 
 function App() {
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser, isProfile } = useContext(AppContext);
 
   useEffect(() => {
     auth.onAuthStateChanged((google_user) => {
@@ -62,7 +63,7 @@ function App() {
         <Nav/>
         <main>
           <header>
-            <Tweeter/>
+            {isProfile ? <Profile/> : <Tweeter/>}
           </header>
           <Feed/>
         </main>

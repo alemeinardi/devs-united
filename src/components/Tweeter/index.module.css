@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: var(--body__width);
+  padding-bottom: 15px;
 }
 
 .tweet {
@@ -21,7 +22,7 @@
 }
 
 textarea {
-  width: 480px;
+  width: 450px;
   background-color: #2F112D;
   color: #914D8B;
   padding: 10px;

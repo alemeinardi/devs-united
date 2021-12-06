@@ -1,12 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import styles from "./index.module.css";
 import { AppContext } from "../../contexts/AppContext";
 import { logout } from "../../firebase/firebase";
 
 const Nav = () => {
 
-  const { user, setUser } = useContext(AppContext);
-  const [ isProfile, setIsProfile] = useState(false);
+  const { user, setUser, isProfile, setIsProfile, setFilter } = useContext(AppContext);
   
   const handleLogOut = () => {
     logout();
@@ -15,18 +14,23 @@ const Nav = () => {
       userId: null});
   }
 
-  const appNav = () => {
+  const handleProfile = (isProfile) => {
+    setFilter(isProfile ? "posts" : "all");
+    setIsProfile(isProfile);
+  }
+
+  const navApp = () => {
     return (<nav>
-      <img className={styles.username_photo} style={{ borderColor: user.color }} onClick={() => setIsProfile(true)} alt="User" src={user.photoURL}></img>
+      <img className={styles.username_photo} style={{ borderColor: user.color }} onClick={() => {handleProfile(true)}} alt="User" src={user.photoURL}></img>
       <img className={styles.min_logo} alt="Logo" src="./images/logo.svg"></img>
       <img className={styles.min_logo_name} alt="Logo Name" src="./images/logo_name.svg"></img>
     </nav>);
   };
 
-  const profile = () => {
+  const navProfile = () => {
     return (<nav>
       <div className={styles.username}>
-        <img alt="arrow" src="./images/backarrow.png" onClick={() => {setIsProfile(false)}}></img>
+        <img alt="arrow" src="./images/backarrow.png" onClick={() => {handleProfile(false)}}></img>
         <span style={{ color: user.color }}>{user.username}</span>
       </div>
       <button className={styles.button_logout} onClick={handleLogOut}>
@@ -36,7 +40,7 @@ const Nav = () => {
     </nav>);
   };
 
-  return isProfile ? profile() : appNav()
-  }
+  return isProfile ? navProfile() : navApp()
+}
 
 export default Nav;
