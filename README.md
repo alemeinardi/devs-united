@@ -4,7 +4,7 @@ Developers Social Network.
 
 ## Web App's link 🌐
 
-[Bookings](https://devs-united-a8be3.web.app/)
+[Devs United](https://devs-united-a8be3.web.app/)
 
 Hosted on Firebase
 
